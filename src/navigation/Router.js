@@ -15,7 +15,7 @@ const Router = props => {
           component={HomeScreen}
           options={{headerShown: false}}
         />
-        <Stack.Screen name={'Get started!'} component={TabNavigator} />
+        <Stack.Screen name={'Play'} component={TabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

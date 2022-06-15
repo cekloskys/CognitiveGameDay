@@ -1,7 +1,7 @@
 import React from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import HowToScreen from '../screens/HowTo';
-import LinksScreen from '../screens/Links';
+import Solutions from '../screens/Solutions';
+import Games from '../screens/Games';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -9,13 +9,13 @@ const TabNavigator = props => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: '#f15454',
+        tabBarActiveTintColor: '#000000',
         tabBarIndicatorStyle: {
-          backgroundColor: '#f15454',
+          backgroundColor: '#000000',
         },
       }}>
-      <Tab.Screen name={'Tutorials'} component={HowToScreen} />
-      <Tab.Screen name={'Links'} component={LinksScreen} />
+      <Tab.Screen name={'Games'} component={Games} />
+      <Tab.Screen name={'Solutions'} component={Solutions} />
     </Tab.Navigator>
   );
 };

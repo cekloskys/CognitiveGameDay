@@ -7,7 +7,6 @@ import {
   SafeAreaView,
 } from 'react-native';
 import styles from './styles';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
 import OrientationView from 'rn-orientation-view';
 import landscapeStyles from './landscapeStyles';
@@ -44,35 +43,34 @@ const HomeScreen = props => {
       style={styles.container}
       landscapeStyles={landscapeStyles.container}>
       <ImageBackground
-        source={require('../../../assets/images/griffin_background_small.jpg')}
+        source={require('../../../assets/images/MindGameLogo.jpg')}
         style={styles.image}
       />
+      {/* eslint-disable-next-line react-native/no-inline-styles */}
       <SafeAreaView style={{flex: 0.0}} />
       <View style={styles.header}>
         {isLandscape() === false ? (
           <Text style={styles.title}>
-            Logue Link
-            <Text style={styles.title2}>{'\n'}Chestnut Hill College</Text>
-            <Text style={styles.title4}>{'\n'}Logue Library</Text>
+            Cognitive Game Day
+            <Text style={styles.title4}>
+              {'\n'}Society for the Teaching of Psychology
+            </Text>
           </Text>
         ) : (
           <Text style={landscapeStyles.title}>
-            Logue Link
-            <Text style={landscapeStyles.title2}>
-              {'\n'}Chestnut Hill College
+            Cognitive Game Day
+            <Text style={styles.title4}>
+              {'\n'}Society for the Teaching of Psychology
             </Text>
-            <Text style={landscapeStyles.title4}>{'\n'}Logue Library</Text>
           </Text>
         )}
       </View>
       {/* Button */}
       <View style={styles.bottomContainer}>
-        <Text style={styles.title3}>Find your library resources here</Text>
         <Pressable
           style={styles.searchButton}
-          onPress={() => navigation.navigate('Get started!')}>
-          <AntDesign name="user" size={25} color={'#f15454'} />
-          <Text style={styles.searchButtonText}> Get started!</Text>
+          onPress={() => navigation.navigate('Play')}>
+          <Text style={styles.searchButtonText}> Play </Text>
         </Pressable>
       </View>
     </OrientationView>
