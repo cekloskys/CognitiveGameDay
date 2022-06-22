@@ -12,16 +12,19 @@ import styles from './sytles';
 const Solutions = props => {
   const post = props.post;
   const onPress = () =>
-    Linking.canOpenURL(post.uri).then(() => {
-      Linking.openURL(post.uri);
+    Linking.canOpenURL(post.solution).then(() => {
+      Linking.openURL(post.solution);
     });
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.touchable} onPress={onPress}>
         {/* Image */}
-        <Image source={post.image} style={styles.image} />
+        <Image
+          source={require('../../../assets/images/MindGamesLogo.png')}
+          style={styles.image}
+        />
         {/* Description Text */}
-        <View style={{flex:1}}>
+        <View style={{flex: 1}}>
           <Text style={styles.description}>{post.title}</Text>
         </View>
       </TouchableOpacity>

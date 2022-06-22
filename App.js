@@ -12,6 +12,8 @@ import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Router from './src/navigation/Router';
+import {client} from './apollo';
+import {ApolloProvider} from '@apollo/client';
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -21,7 +23,11 @@ const App: () => Node = () => {
     flex: 0.0,
   };
 
-  return <Router />;
+  return (
+    <ApolloProvider client={client}>
+      <Router />
+    </ApolloProvider>
+  );
 };
 
 export default App;

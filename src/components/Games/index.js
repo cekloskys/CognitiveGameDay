@@ -12,14 +12,17 @@ import styles from './styles';
 const Games = props => {
   const post = props.post;
   const onPress = () =>
-    Linking.canOpenURL(post.uri).then(() => {
-      Linking.openURL(post.uri);
+    Linking.canOpenURL(post.game).then(() => {
+      Linking.openURL(post.game);
     });
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.touchable} onPress={onPress}>
         {/* Image */}
-        <Image source={post.image} style={styles.image} />
+        <Image
+          source={require('../../../assets/images/MindGamesLogo.png')}
+          style={styles.image}
+        />
         {/* Description Text */}
         {/* eslint-disable-next-line react-native/no-inline-styles */}
         <View style={{flex: 1}}>
