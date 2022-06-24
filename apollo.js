@@ -9,7 +9,7 @@ import {
 import {setContext} from '@apollo/client/link/context';
 import {AsyncStorage} from 'react-native';
 
-const URI = 'https://tempapolloserver.herokuapp.com/';
+const URI = 'https://chestnut-hill-college-2.herokuapp.com/';
 const androidURI = 'http://172.20.224.1:4000/';
 
 const httpLink = createHttpLink({
