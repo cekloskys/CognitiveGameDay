@@ -1,36 +1,33 @@
 import {
   ApolloClient,
   InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql,
   createHttpLink,
 } from '@apollo/client';
 import {setContext} from '@apollo/client/link/context';
-import {AsyncStorage} from 'react-native';
+import 'localstorage-polyfill'; 
 
 const URI = 'https://tempapolloserver.herokuapp.com/';
-const androidURI = 'http://172.20.224.1:4000/';
+const androidURI = 'http://localhost:4000/';
 
 const httpLink = createHttpLink({
   uri: URI,
+  // uri: androidURI,
 });
 
-const authLink = setContext(async (_, {headers}) => {
+const authLink = setContext( (_, {headers}) => {
   // get the authentication token from local storage if it exists
-  const token = await AsyncStorage.getItem('token');
+  const token = localStorage.getItem('token');
   // return the headers to the context so httpLink can read them
+  //if (!token) localStorage.setItem('token', '')
   return {
     headers: {
       ...headers,
-      authorization: token || '',
+      authorization: token || ''
     },
   };
 });
 
 export const client = new ApolloClient({
-  // uri: httpLink,
   link: authLink.concat(httpLink),
-  // link: httpLink,
   cache: new InMemoryCache(),
 });

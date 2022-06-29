@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {Alert, FlatList, View} from 'react-native';
-import solutions from '../../../assets/data/solution';
-import Solutions from '../../components/Solutions';
+import DeleteGame from '../../components/DeleteGame';
 import {useQuery, gql} from '@apollo/client';
 
 const GET_GAMES = gql`
   query Games {
     games {
-      _id
+    _id
       note
       image
       game
@@ -16,9 +15,8 @@ const GET_GAMES = gql`
     }
   }
 `;
-
-const SolutionsScreen = props => {
-  const {data, error, loading} = useQuery(GET_GAMES);
+const DeleteGamesScreen = props => {
+  const {data, error, loading} = useQuery(GET_GAMES, {fetchPolicy: 'network-only'});
   const [results, setResults] = useState([]);
   useEffect(() => {
     if (error) {
@@ -27,7 +25,6 @@ const SolutionsScreen = props => {
   }, [error]);
 
   useEffect(() => {
-    //console.log(data);
 
     if (data) {
       setResults(data.games);
@@ -35,12 +32,9 @@ const SolutionsScreen = props => {
   }, [data]);
   return (
     <View>
-      <FlatList
-        data={results}
-        renderItem={({item}) => <Solutions post={item} />}
-      />
+      <FlatList data={results} renderItem={({item}) => <DeleteGame post={item} />} />
     </View>
   );
 };
 
-export default SolutionsScreen;
+export default DeleteGamesScreen;

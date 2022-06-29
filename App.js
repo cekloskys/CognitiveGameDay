@@ -7,7 +7,7 @@
  */
 import 'react-native-gesture-handler';
 import React from 'react';
-import type {Node} from 'react';
+//import type {Node} from 'react';
 import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -15,7 +15,7 @@ import Router from './src/navigation/Router';
 import {client} from './apollo';
 import {ApolloProvider} from '@apollo/client';
 
-const App: () => Node = () => {
+const App = () => { 
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {

@@ -6,7 +6,7 @@ import {useQuery, gql} from '@apollo/client';
 const GET_GAMES = gql`
   query Games {
     games {
-      id
+      _id
       note
       image
       game
@@ -20,6 +20,7 @@ const GamesScreen = props => {
   const [results, setResults] = useState([]);
   useEffect(() => {
     if (error) {
+      console.log(error.message);
       Alert.alert('Error Fetching Games!', error.message);
     }
   }, [error]);

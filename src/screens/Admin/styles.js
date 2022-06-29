@@ -11,11 +11,11 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   image: {
-    width: '25%',
-    height: '25%',
+    width: '100%',
+    height: '100%',
     flex: 1,
     position: 'absolute',
-    // resizeMode: 'contain',
+    resizeMode: 'contain',
   },
   box: {
     display: 'flex',
@@ -52,19 +52,32 @@ const styles = StyleSheet.create({
   },
   bottomContainer: {
     width: '100%',
-    height: 60,
     position: 'absolute',
+    flexDirection: 'row',
+    alignSelf: 'center',
+    height: 60,
     bottom: 30,
   },
-  searchButton: {
+  addGameButton: {
     backgroundColor: 'black',
     height: 50,
     borderRadius: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row',
     alignSelf: 'center',
-    width: '90%',
+    width: '40%',
+    marginLeft: '5%'
+  },
+  deleteGameButton: {
+    backgroundColor: 'black',
+    height: 50,
+    borderRadius: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    width: '40%',
+    marginLeft: '10%'
+    
   },
   searchButtonText: {
     color: '#ffffff',

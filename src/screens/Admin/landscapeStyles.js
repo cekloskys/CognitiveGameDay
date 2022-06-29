@@ -1,42 +1,23 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
-const styles = StyleSheet.create({
+const landscapeStyles = StyleSheet.create({
   container: {
     flex: 1,
     position: 'absolute',
     width: '100%',
     height: '100%',
   },
-  header: {
-    marginTop: 0,
-  },
   image: {
-    width: '25%',
-    height: '25%',
+    width: '100%',
+    height: '100%',
     flex: 1,
     position: 'absolute',
-    // resizeMode: 'contain',
-  },
-  box: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100%'
   },
   title: {
-    fontSize: 45,
+    fontSize: 30,
     fontWeight: 'bold',
     position: 'absolute',
-    marginTop: 0,
-    color: '#000000',
-    width: '100%',
-    textAlign: 'center',
-  },
-  title4: {
-    fontSize: 25,
-    fontWeight: 'normal',
-    position: 'absolute',
-    marginTop: 0,
+    top: 20,
     color: '#000000',
     width: '100%',
     textAlign: 'center',
@@ -46,7 +27,7 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     position: 'absolute',
     bottom: 80,
-    color: '#000000',
+    color: '#FFF',
     width: '100%',
     textAlign: 'center',
   },
@@ -57,7 +38,7 @@ const styles = StyleSheet.create({
     bottom: 30,
   },
   searchButton: {
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     height: 50,
     borderRadius: 50,
     justifyContent: 'center',
@@ -67,10 +48,9 @@ const styles = StyleSheet.create({
     width: '90%',
   },
   searchButtonText: {
-    color: '#ffffff',
     fontSize: 16,
     fontWeight: 'bold',
   },
 });
 
-export default styles;
+export default landscapeStyles;
