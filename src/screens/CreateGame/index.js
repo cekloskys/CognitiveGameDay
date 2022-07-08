@@ -39,12 +39,20 @@ const CreateGameScreen = () => {
   }
 
   const onCreateGame = async () => {
-    if (!game) {
+    if (!game ) {
       alert('Please fill in Game');
       return;
     }
-    if (!solution) {
+    if (!game.startsWith('https://')) {
+      alert('Please include "https://" in Game');
+      return;
+    }
+    if (!solution ) {
       alert('Please fill in Solution');
+      return;
+    }
+    if (!solution.startsWith('https://')) {
+      alert('Please include "https://" in Solution');
       return;
     }
     if (!title) {
@@ -74,14 +82,14 @@ const CreateGameScreen = () => {
           onChangeText={value => setGame(value)}
           style={styles.nameInput}
           clearButtonMode={'while-editing'}
-          placeholder={'Enter Game Link'}
+          placeholder={'Enter Game Link  \t\t\t\tEx.https://www.google.com'}
         />
         <TextInput
           value={solution}
           onChangeText={value => setSolution(value)}
           style={styles.nameInput}
           clearButtonMode={'while-editing'}
-          placeholder={'Enter Solution Link'}
+          placeholder={'Enter Solution Link \t\t\t\tEx.https://www.google.com'}
         />
         <TextInput
           value={title}

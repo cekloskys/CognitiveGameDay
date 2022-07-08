@@ -6,8 +6,8 @@ import 'localstorage-polyfill';
 
 
 const SIGN_IN = gql`
-mutation signIn($id: String!, $pass: String!) {
-  signIn(input: {id: $id, pass: $pass}) {
+  mutation signInGame($signInGameId: String, $pass: String) {
+    signInGame(id: $signInGameId, pass: $pass) {
     user {
       id
       name
@@ -36,8 +36,8 @@ const SignInScreen = () => {
 
   if (data) {
     // save token
-    localStorage.setItem('token', data.signIn.token)
-    localStorage.setItem('Name', data.signIn.user.name)
+    localStorage.setItem('token', data.signInGame.token)
+    localStorage.setItem('Name', data.signInGame.user.name)
     navigation.navigate('Admin')
     
   }
@@ -47,7 +47,7 @@ const SignInScreen = () => {
         id,
         pass
     } 
-    await signIn({ variables: { id: id, pass: pass }}).catch((error) => console.log(error))
+    await signIn({ variables: { signInGameId: id, pass: pass }}).catch((error) => console.log(error))
   }
 
   return (
