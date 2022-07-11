@@ -4,7 +4,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import {setContext} from '@apollo/client/link/context';
-import 'localstorage-polyfill'; 
+import 'localstorage-polyfill';
 
 const URI = 'https://tempapolloserver.herokuapp.com/';
 const androidURI = 'http://localhost:4000/';
@@ -30,4 +30,9 @@ const authLink = setContext( (_, {headers}) => {
 export const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
+  defaultOptions: {
+    watchQuery: {
+      fetchPolicy: 'network-only',
+    },
+  },
 });
