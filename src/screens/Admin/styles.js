@@ -7,6 +7,20 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  backButton: {
+    backgroundColor: 'black',
+    position: 'absolute',
+    borderRadius: 30,
+    alignContent: 'center',
+    bottom: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    width: '90%',
+    height: 50,
+    marginLeft: '5%'
+
+  },
   header: {
     marginTop: 0,
   },
