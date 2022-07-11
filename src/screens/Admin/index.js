@@ -6,9 +6,11 @@ import {
   ImageBackground,
   Pressable,
   SafeAreaView,
+  BackHandler,
+  Button,
 } from 'react-native';
 import styles from './styles';
-import {useNavigation} from '@react-navigation/native';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import OrientationView from 'rn-orientation-view';
 import landscapeStyles from './landscapeStyles';
 import {Dimensions} from 'react-native';
@@ -16,6 +18,17 @@ import {useState} from 'react';
 
 const AdminScreen = props => {
   const navigation = useNavigation();
+
+  const backAction = () => {
+    navigation.navigate('Home');
+    return true;
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', backAction);
+    return () =>
+      BackHandler.removeEventListener('hardwareBackPress', backAction);
+  }, []);
 
   /**
    * Returns true if the is in landscape mode
@@ -40,7 +53,6 @@ const AdminScreen = props => {
     <OrientationView
       style={styles.container}
       landscapeStyles={landscapeStyles.container}>
-      
       {/* eslint-disable-next-line react-native/no-inline-styles */}
       <SafeAreaView style={{flex: 0.0}} />
       <View style={styles.header}>
@@ -63,13 +75,18 @@ const AdminScreen = props => {
 
       {/* Button */}
       <View style={styles.box}>
-        <Image
-        source={require('../../../assets/images/MindGamesLogo.png')}
-        
-      />
+        <Image source={require('../../../assets/images/MindGamesLogo.png')} />
       </View>
-      
+
       <View style={styles.bottomContainer}>
+        <Pressable
+          style={styles.backButton}
+          onPress={() => {
+            navigation.navigate('Home');
+          }}>
+          <Text style={styles.searchButtonText}>Return Home</Text>
+        </Pressable>
+
         <Pressable
           style={styles.addGameButton}
           onPress={() => navigation.navigate('Create Game')}>
