@@ -23,7 +23,7 @@ const Router = props => {
         <Stack.Screen name={'Play'} component={TabNavigator} />
         <Stack.Screen name={'Sign In'} component={SignInScreen} />
         <Stack.Screen name={'Admin'} component={AdminScreen} options={{
-          headerShown: false
+          headerShown: false, gestureEnabled: false
         }} />
         <Stack.Screen name={'Create Game'} component={CreateGameScreen} />
         <Stack.Screen name={'Delete Game'} component={DeleteGamesScreen} />

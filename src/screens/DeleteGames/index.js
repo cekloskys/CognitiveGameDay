@@ -8,7 +8,6 @@ const GET_GAMES = gql`
     games {
     _id
       note
-      image
       game
       solution
       title

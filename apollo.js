@@ -1,10 +1,6 @@
-import {
-  ApolloClient,
-  InMemoryCache,
-  createHttpLink,
-} from '@apollo/client';
+import {ApolloClient, InMemoryCache, createHttpLink} from '@apollo/client';
 import {setContext} from '@apollo/client/link/context';
-import 'localstorage-polyfill'; 
+import 'localstorage-polyfill';
 
 const URI = 'https://tempapolloserver.herokuapp.com/';
 const androidURI = 'http://localhost:4000/';
@@ -14,7 +10,7 @@ const httpLink = createHttpLink({
   // uri: androidURI,
 });
 
-const authLink = setContext( (_, {headers}) => {
+const authLink = setContext((_, {headers}) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem('token');
   // return the headers to the context so httpLink can read them
@@ -22,12 +18,29 @@ const authLink = setContext( (_, {headers}) => {
   return {
     headers: {
       ...headers,
-      authorization: token || ''
+      authorization: token || '',
     },
   };
 });
 
 export const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          getAllPosts: {
+            merge(existing, incoming) {
+              return incoming;
+            },
+          },
+        },
+      },
+    },
+  }),
+  defaultOptions: {
+    watchQuery: {
+      fetchPolicy: 'network-only',
+    },
+  },
 });
