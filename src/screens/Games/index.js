@@ -8,7 +8,6 @@ const GET_GAMES = gql`
     games {
       _id
       note
-      image
       game
       solution
       title
@@ -16,7 +15,7 @@ const GET_GAMES = gql`
   }
 `;
 const GamesScreen = props => {
-  const {data, error, loading} = useQuery(GET_GAMES);
+  const {data, error, loading} = useQuery(GET_GAMES, { fetchPolicy: 'network-only' });
   const [results, setResults] = useState([]);
   useEffect(() => {
     if (error) {

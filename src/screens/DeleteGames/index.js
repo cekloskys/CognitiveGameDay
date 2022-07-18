@@ -6,9 +6,8 @@ import {useQuery, gql} from '@apollo/client';
 const GET_GAMES = gql`
   query Games {
     games {
-    _id
+      _id
       note
-      image
       game
       solution
       title
@@ -16,7 +15,9 @@ const GET_GAMES = gql`
   }
 `;
 const DeleteGamesScreen = props => {
-  const {data, error, loading} = useQuery(GET_GAMES, {fetchPolicy: 'network-only'});
+  const {data, error, loading} = useQuery(GET_GAMES, {
+    fetchPolicy: 'network-only',
+  });
   const [results, setResults] = useState([]);
   useEffect(() => {
     if (error) {
@@ -25,14 +26,16 @@ const DeleteGamesScreen = props => {
   }, [error]);
 
   useEffect(() => {
-
     if (data) {
       setResults(data.games);
     }
   }, [data]);
   return (
     <View>
-      <FlatList data={results} renderItem={({item}) => <DeleteGame post={item} />} />
+      <FlatList
+        data={results}
+        renderItem={({item}) => <DeleteGame post={item} />}
+      />
     </View>
   );
 };

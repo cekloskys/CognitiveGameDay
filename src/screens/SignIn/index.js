@@ -30,13 +30,21 @@ const SignInScreen = () => {
       Alert.alert('Invalid credentials, try again', error.message);
     }
   }, [error]);
+  useEffect(() => {
+    if (data) {
+      // save token
+      localStorage.setItem('token', data.signInGame.token);
+      localStorage.setItem('Name', data.signInGame.user.name);
+      navigation.navigate('Admin');
+    }
+  }, [data]);
 
-  if (data) {
-    // save token
-    localStorage.setItem('token', data.signInGame.token);
-    localStorage.setItem('Name', data.signInGame.user.name);
-    navigation.navigate('Admin');
-  }
+  //if (data) {
+  // save token
+  //  localStorage.setItem('token', data.signInGame.token);
+  //  localStorage.setItem('Name', data.signInGame.user.name);
+  // navigation.navigate('Admin');
+  //}
 
   const onSubmit = async () => {
     if (!id || !pass) {
@@ -58,7 +66,7 @@ const SignInScreen = () => {
         placeholder="Enter User ID"
         placeholderTextColor="grey"
         value={id}
-        autoCapitalize='none'
+        autoCapitalize="none"
         onChangeText={setUserID}
         style={{
           color: 'black',
