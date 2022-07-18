@@ -36,9 +36,9 @@ const styles = StyleSheet.create({
   },
   bottomContainer: {
     width: '100%',
-    height: 50,
+    height: 460,
     position: 'absolute',
-    bottom: 10,
+    bottom: 120,
   },
   newCourseContainer: {
     top: 10,

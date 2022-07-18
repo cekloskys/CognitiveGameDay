@@ -9,16 +9,13 @@ const styles = StyleSheet.create({
   },
   backButton: {
     backgroundColor: 'black',
-    position: 'absolute',
-    borderRadius: 30,
-    alignContent: 'center',
-    bottom: 100,
+    height: 50,
+    borderRadius: 50,
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    width: '90%',
-    height: 50,
-    marginLeft: '5%'
+    width: '30%',
+    marginLeft: '2%'
 
   },
   header: {
@@ -79,8 +76,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    width: '40%',
-    marginLeft: '5%'
+    width: '30%',
+    marginLeft: '4%'
   },
   deleteGameButton: {
     backgroundColor: 'black',
@@ -89,9 +86,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    width: '40%',
-    marginLeft: '10%'
-    
+    width: '30%',
+    marginLeft: '3%'
+
   },
   searchButtonText: {
     color: '#ffffff',

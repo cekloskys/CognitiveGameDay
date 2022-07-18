@@ -55,19 +55,24 @@ const SignInScreen = () => {
   return (
     <View style={{padding: 20}}>
       <TextInput
-        placeholder="User ID"
+        placeholder="Enter User ID"
+        placeholderTextColor="grey"
         value={id}
+        autoCapitalize='none'
         onChangeText={setUserID}
         style={{
           color: 'black',
           fontSize: 18,
           width: '100%',
           marginVertical: 25,
+          borderColor: 'lightgrey',
+          borderBottomWidth: 1.0,
         }}
       />
 
       <TextInput
-        placeholder="Password"
+        placeholder="Enter Password"
+        placeholderTextColor="grey"
         value={pass}
         onChangeText={setPassword}
         secureTextEntry
@@ -76,6 +81,8 @@ const SignInScreen = () => {
           fontSize: 18,
           width: '100%',
           marginVertical: 25,
+          borderColor: 'lightgrey',
+          borderBottomWidth: 1.0,
         }}
       />
       <Pressable

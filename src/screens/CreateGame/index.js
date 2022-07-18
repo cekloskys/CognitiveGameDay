@@ -70,26 +70,30 @@ const CreateGameScreen = () => {
     <View style={styles.container}>
       <View style={styles.newCourseContainer}>
         <TextInput
-          autoCapitalize={'characters'}
           value={note}
           onChangeText={value => setNote(value)}
           style={styles.codeInput}
           clearButtonMode={'while-editing'}
           placeholder={'Enter Note'}
+          placeholderTextColor="grey"
         />
         <TextInput
           value={game}
+          autoCapitalize='none'
           onChangeText={value => setGame(value)}
           style={styles.nameInput}
           clearButtonMode={'while-editing'}
           placeholder={'Enter Game Link  \t\t\t\tEx.https://www.google.com'}
+          placeholderTextColor="grey"
         />
         <TextInput
           value={solution}
+          autoCapitalize='none'
           onChangeText={value => setSolution(value)}
           style={styles.nameInput}
           clearButtonMode={'while-editing'}
           placeholder={'Enter Solution Link \t\t\t\tEx.https://www.google.com'}
+          placeholderTextColor="grey"
         />
         <TextInput
           value={title}
@@ -98,9 +102,8 @@ const CreateGameScreen = () => {
           clearButtonMode={'while-editing'}
           maxLength={11}
           placeholder={'Enter Game Title'}
+          placeholderTextColor="grey"
         />
-      </View>
-      <View style={styles.bottomContainer}>
         <Pressable style={styles.searchButton} onPress={onCreateGame}>
           <Text style={styles.searchButtonText}>Add</Text>
         </Pressable>

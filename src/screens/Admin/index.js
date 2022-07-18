@@ -60,14 +60,14 @@ const AdminScreen = props => {
           <Text style={styles.title}>
             Welcome {localStorage.getItem('Name')}
             <Text style={styles.title4}>
-              {'\n'}Would you like to Add a Game or Delete a Game
+              {'\n'}Would you like to Add a Game or Delete a Game?
             </Text>
           </Text>
         ) : (
           <Text style={landscapeStyles.title}>
             Welcome {localStorage.getItem('Name')}
             <Text style={styles.title4}>
-              {'\n'}Would you like to Add a Game or Delete a Game
+              {'\n'}Would you like to Add a Game or Delete a Game?
             </Text>
           </Text>
         )}
@@ -90,7 +90,7 @@ const AdminScreen = props => {
         <Pressable
           style={styles.addGameButton}
           onPress={() => navigation.navigate('Create Game')}>
-          <Text style={styles.searchButtonText}> Add New Game </Text>
+          <Text style={styles.searchButtonText}> Add Game </Text>
         </Pressable>
         <Pressable
           style={styles.deleteGameButton}

@@ -24,9 +24,7 @@ const Solutions = props => {
           style={styles.image}
         />
         {/* Description Text */}
-        <View style={{flex: 1}}>
           <Text style={styles.description}>{post.title}</Text>
-        </View>
       </TouchableOpacity>
     </View>
   );
