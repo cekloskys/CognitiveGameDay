@@ -60,23 +60,35 @@ const AdminScreen = props => {
           <Text style={styles.title}>
             Welcome {localStorage.getItem('Name')}
             <Text style={styles.title4}>
-              {'\n'}Would you like to Add a Game or Delete a Game?
+              {'\n'}Would you like to add or delete a game?
             </Text>
           </Text>
         ) : (
           <Text style={landscapeStyles.title}>
             Welcome {localStorage.getItem('Name')}
             <Text style={styles.title4}>
-              {'\n'}Would you like to Add a Game or Delete a Game?
+              {'\n'}Would you like to add or delete a game?
             </Text>
           </Text>
         )}
       </View>
 
       {/* Button */}
-      <View style={styles.box}>
-        <Image source={require('../../../assets/images/MindGamesLogo.png')} />
-      </View>
+      {isLandscape() === false ? (
+        <View style={styles.box}>
+          <Image source={require('../../../assets/images/MindGamesLogo.png')} />
+        </View>
+      ) : (
+        <View style={landscapeStyles.box}>
+          <Image
+            style={{
+              width: Dimensions.get('screen').width * 0.15,
+              height: Dimensions.get('screen').width * 0.15,
+            }}
+            source={require('../../../assets/images/MindGamesLogo.png')}
+          />
+        </View>
+      )}
 
       <View style={styles.bottomContainer}>
         <Pressable

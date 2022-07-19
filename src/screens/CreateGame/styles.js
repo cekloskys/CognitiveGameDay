@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1.0,
     color: 'black',
     borderColor: 'lightgrey',
-    marginBottom: 10,
+    marginBottom: 15,
   },
   dropDownButton: {
     width: '100%',

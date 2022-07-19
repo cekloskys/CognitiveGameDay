@@ -40,7 +40,6 @@ const HomeScreen = props => {
     <OrientationView
       style={styles.container}
       landscapeStyles={landscapeStyles.container}>
-        
       {/* eslint-disable-next-line react-native/no-inline-styles */}
       <SafeAreaView style={{flex: 0.0}} />
       <View style={styles.header}>
@@ -61,22 +60,33 @@ const HomeScreen = props => {
         )}
       </View>
       {/* Button */}
-      <View style={styles.box}>
-      <Pressable
-        onPress={()=> navigation.navigate('Sign In')}
-      >
-        <Image
-            source={require('../../../assets/images/MindGamesLogo.png')}
-          />
-      </Pressable>
-      </View>
+      {isLandscape() === false ? (
+        <View style={styles.box}>
+          <Pressable onPress={() => navigation.navigate('Sign In')}>
+            <Image
+              source={require('../../../assets/images/MindGamesLogo.png')}
+            />
+          </Pressable>
+        </View>
+      ) : (
+        <View style={landscapeStyles.box}>
+          <Pressable onPress={() => navigation.navigate('Sign In')}>
+            <Image
+              style={{
+                width: Dimensions.get('screen').width * 0.15,
+                height: Dimensions.get('screen').width * 0.15,
+              }}
+              source={require('../../../assets/images/MindGamesLogo.png')}
+            />
+          </Pressable>
+        </View>
+      )}
       <View style={styles.bottomContainer}>
         <Pressable
           style={styles.searchButton}
           onPress={() => navigation.navigate('Play')}>
           <Text style={styles.searchButtonText}> Play </Text>
         </Pressable>
-        
       </View>
     </OrientationView>
   );

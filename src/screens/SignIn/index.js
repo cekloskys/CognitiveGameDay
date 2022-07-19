@@ -48,7 +48,7 @@ const SignInScreen = () => {
 
   const onSubmit = async () => {
     if (!id || !pass) {
-      alert('User ID and Password are required');
+      Alert.alert('Invalid Input', 'User ID and Password are required!');
       return;
     }
     const input = {
@@ -70,25 +70,25 @@ const SignInScreen = () => {
         onChangeText={setUserID}
         style={{
           color: 'black',
-          fontSize: 18,
+          fontSize: 16,
           width: '100%',
-          marginVertical: 25,
+          marginVertical: 15,
           borderColor: 'lightgrey',
           borderBottomWidth: 1.0,
         }}
       />
-
       <TextInput
         placeholder="Enter Password"
         placeholderTextColor="grey"
         value={pass}
+        autoCapitalize="none"
         onChangeText={setPassword}
         secureTextEntry
         style={{
           color: 'black',
-          fontSize: 18,
+          fontSize: 16,
           width: '100%',
-          marginVertical: 25,
+          marginVertical: 15,
           borderColor: 'lightgrey',
           borderBottomWidth: 1.0,
         }}

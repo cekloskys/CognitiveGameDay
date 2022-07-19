@@ -51,6 +51,12 @@ const landscapeStyles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  box: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+  },
 });
 
 export default landscapeStyles;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {
   Text,
   Image,
@@ -10,8 +10,8 @@ import {
 } from 'react-native';
 import styles from './styles';
 import {useMutation, gql} from '@apollo/client';
-import { onError } from 'apollo-link-error'
-import { useNavigation } from '@react-navigation/native';
+import {onError} from 'apollo-link-error';
+import {useNavigation} from '@react-navigation/native';
 
 const DELETE_GAMES = gql`
   mutation DeleteGame($deleteGameId: ID) {
@@ -20,48 +20,48 @@ const DELETE_GAMES = gql`
 `;
 
 const DeleteGames = props => {
-
   const post = props.post;
 
   const navigation = useNavigation();
 
-  const [deleteGame, { data, error, loading }] = useMutation(DELETE_GAMES);
+  const [deleteGame, {data, error, loading}] = useMutation(DELETE_GAMES);
 
   useEffect(() => {
     if (error) {
-        console.log(error);
-        Alert.alert( 'Error',error.message);
+      console.log(error);
+      Alert.alert('Error', error.message);
     }
-  }, [error])
+  }, [error]);
 
   if (data) {
-    Alert.alert('Completed', "Sucsesfully Deleted: "+ post.title)
+    Alert.alert('Completed', 'Sucsesfully deleted ' + post.title);
   }
-  const deleteGameId = post._id.toString()
+  const deleteGameId = post._id.toString();
 
-  const onPress = async () =>{
+  const onPress = async () => {
     Alert.alert(
-      "Please Comfirm",
-      "Are you Sure you Would like to delete: " + post.title,
+      'Please Comfirm',
+      'Are you sure you would like to delete ' + post.title + '?',
       [
         {
-          text: "Yes",
+          text: 'Yes',
           onPress: async () => {
-            console.log("User Deleted Game Deleteing Game Then Returning to Admin");
-            await deleteGame({ variables: {deleteGameId: deleteGameId}}).then(navigation.navigate('Admin')).catch((error) => console.log(error)) 
+            //console.log("User Deleted Game Deleteing Game Then Returning to Admin");
+            await deleteGame({variables: {deleteGameId: deleteGameId}})
+              .then(navigation.navigate('Admin'))
+              .catch(error => console.log(error));
           },
         },
         {
-          text: "No",
+          text: 'No',
           onPress: () => {
-            console.log("User Canceled Returning to Admin");
-            navigation.navigate("Admin")
-          }
-        }
-      ]
-    )
-    
-    ;}
+            //console.log("User Canceled Returning to Admin");
+            navigation.navigate('Admin');
+          },
+        },
+      ],
+    );
+  };
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.touchable} onPress={onPress}>
@@ -70,12 +70,14 @@ const DeleteGames = props => {
           source={require('../../../assets/images/MindGamesLogo.png')}
           style={styles.image}
         />
-        {/* Description Text */}
-        {/* eslint-disable-next-line react-native/no-inline-styles */}
-        <View style={{flex: 1}}>
+        {post.note !== '' ? (
+          <View style={{flex: 1}}>
+            <Text style={styles.description}>{post.title}</Text>
+            <Text style={styles.description1}>{post.note}</Text>
+          </View>
+        ) : (
           <Text style={styles.description}>{post.title}</Text>
-          <Text style={styles.description1}>{post.note}</Text>
-        </View>
+        )}
       </TouchableOpacity>
     </View>
   );

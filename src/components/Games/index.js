@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Text,
   Image,
-  Pressable,
   Linking,
   TouchableOpacity,
   View,
@@ -23,12 +22,14 @@ const Games = props => {
           source={require('../../../assets/images/MindGamesLogo.png')}
           style={styles.image}
         />
-        {/* Description Text */}
-        {/* eslint-disable-next-line react-native/no-inline-styles */}
-        <View style={{flex: 1}}>
+        {post.note !== '' ? (
+          <View style={{flex: 1}}>
+            <Text style={styles.description}>{post.title}</Text>
+            <Text style={styles.description1}>{post.note}</Text>
+          </View>
+        ) : (
           <Text style={styles.description}>{post.title}</Text>
-          <Text style={styles.description1}>{post.note}</Text>
-        </View>
+        )}
       </TouchableOpacity>
     </View>
   );
