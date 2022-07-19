@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, TextInput, Pressable, Alert, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  Pressable,
+  Alert,
+  ScrollView,
+} from 'react-native';
 import styles from '../CreateGame/styles';
 import {useNavigation} from '@react-navigation/native';
 import {useMutation, gql, ApolloError} from '@apollo/client';
@@ -102,7 +109,6 @@ const CreateGameScreen = () => {
           onChangeText={value => setTitle(value)}
           style={styles.semesterInput}
           clearButtonMode={'while-editing'}
-          maxLength={11}
           placeholder={'Enter Game Title'}
           placeholderTextColor="grey"
         />
