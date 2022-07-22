@@ -33,9 +33,12 @@ const DeleteGames = props => {
     }
   }, [error]);
 
-  if (data) {
-    Alert.alert('Completed', 'Sucsesfully deleted ' + post.title);
-  }
+  useEffect(() => {
+    if (data) {
+      Alert.alert('Completed', 'Sucsesfully deleted ' + post.title);
+    }
+  }, [data]);
+
   const deleteGameId = post._id.toString();
 
   const onPress = async () => {

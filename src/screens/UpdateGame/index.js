@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Alert, FlatList, View} from 'react-native';
-import Games from '../../components/Games';
 import {useQuery, gql} from '@apollo/client';
+import UpdateGame from '../../components/UpdateGame';
 
 const GET_GAMES = gql`
   query Games {
@@ -14,12 +14,11 @@ const GET_GAMES = gql`
     }
   }
 `;
-const GamesScreen = props => {
+const UpdateGamesScreen = props => {
   const {data, error, loading} = useQuery(GET_GAMES, {
     fetchPolicy: 'network-only',
   });
   const [results, setResults] = useState([]);
-
   useEffect(() => {
     if (error) {
       Alert.alert('Error Fetching Games!', error.message);
@@ -31,12 +30,14 @@ const GamesScreen = props => {
       setResults(data.games);
     }
   }, [data]);
-
   return (
     <View>
-      <FlatList data={results} renderItem={({item}) => <Games post={item} />} />
+      <FlatList
+        data={results}
+        renderItem={({item}) => <UpdateGame post={item} />}
+      />
     </View>
   );
 };
 
-export default GamesScreen;
+export default UpdateGamesScreen;

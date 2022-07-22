@@ -14,9 +14,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    width: '30%',
-    marginLeft: '2%'
-
+    width: '20%',
+    marginLeft: '2%',
   },
   header: {
     marginTop: 0,
@@ -68,6 +67,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     height: 60,
     bottom: 30,
+    justifyContent: 'space-evenly',
   },
   addGameButton: {
     backgroundColor: 'black',
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    width: '30%',
+    width: '20%',
     marginLeft: '4%'
   },
   deleteGameButton: {
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    width: '30%',
+    width: '20%',
     marginLeft: '3%'
 
   },

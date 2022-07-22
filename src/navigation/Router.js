@@ -7,7 +7,8 @@ import TabNavigator from './TabNavigator';
 import DeleteGamesScreen from '../screens/DeleteGames';
 import AdminScreen from '../screens/Admin';
 import CreateGameScreen from '../screens/CreateGame';
-import { ScreenStackHeaderBackButtonImage } from 'react-native-screens';
+import UpdateGamesScreen from '../screens/UpdateGame';
+import UpdateScreen from '../screens/Update';
 
 const Stack = createStackNavigator();
 
@@ -23,10 +24,13 @@ const Router = props => {
         <Stack.Screen name={'Play'} component={TabNavigator} />
         <Stack.Screen name={'Sign In'} component={SignInScreen} />
         <Stack.Screen name={'Admin'} component={AdminScreen} options={{
-          headerShown: false, gestureEnabled: false
+            headerShown: false,
+            gestureEnabled: false,
         }} />
         <Stack.Screen name={'Create Game'} component={CreateGameScreen} />
         <Stack.Screen name={'Delete Game'} component={DeleteGamesScreen} />
+        <Stack.Screen name={'Update Game'} component={UpdateGamesScreen} />
+        <Stack.Screen name={'Update'} component={UpdateScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

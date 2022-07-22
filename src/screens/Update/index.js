@@ -9,32 +9,40 @@ import {
 } from 'react-native';
 import styles from '../CreateGame/styles';
 import {useNavigation} from '@react-navigation/native';
-import {useMutation, gql} from '@apollo/client';
+import {useMutation, gql, ApolloError} from '@apollo/client';
 
-const CREATE_GAME = gql`
-  mutation CreateGame(
+const UPDATE_GAME = gql`
+  mutation UpdateGame(
+    $updateGameId: ID
     $note: String
     $game: String
     $solution: String
     $title: String
   ) {
-    createGame(note: $note, game: $game, solution: $solution, title: $title)
+    updateGame(
+      id: $updateGameId
+      note: $note
+      game: $game
+      solution: $solution
+      title: $title
+    )
   }
 `;
 
-const CreateGameScreen = () => {
-  const [note, setNote] = useState('');
-  const [game, setGame] = useState('');
-  const [solution, setSolution] = useState('');
-  const [title, setTitle] = useState('');
-
+const UpdateScreen = props => {
   const navigation = useNavigation();
 
-  const [createGame, {data, error, loading}] = useMutation(CREATE_GAME);
+  const post = props.route.params.post;
+  const [note, setNote] = useState(post.note);
+  const [game, setGame] = useState(post.game);
+  const [solution, setSolution] = useState(post.solution);
+  const [title, setTitle] = useState(post.title);
+  const updateGameId = post._id.toString();
+
+  const [updateGame, {data, error, loading}] = useMutation(UPDATE_GAME);
 
   useEffect(() => {
     if (error) {
-      // console.log(error);
       Alert.alert('Error!', error.message);
     }
   }, [error]);
@@ -45,7 +53,7 @@ const CreateGameScreen = () => {
     }
   }, [data]);
 
-  const onCreateGame = async () => {
+  const onUpdateGame = async () => {
     if (!game) {
       Alert.alert('Invalid Input', 'Please enter a Game!');
       return;
@@ -67,11 +75,17 @@ const CreateGameScreen = () => {
       return;
     }
 
-    await createGame({
-      variables: {note: note, game: game, solution: solution, title: title},
+    await updateGame({
+      variables: {
+        updateGameId: updateGameId,
+        note: note,
+        game: game,
+        solution: solution,
+        title: title,
+      },
     }).catch(error => console.log(error));
 
-    Alert.alert('Completed', 'Game Added!');
+    Alert.alert('Completed', 'Game Updated!');
     navigation.navigate('Admin');
   };
 
@@ -114,12 +128,12 @@ const CreateGameScreen = () => {
           multiline={true}
           numberOfLines={10}
         />
-        <Pressable style={styles.searchButton} onPress={onCreateGame}>
-          <Text style={styles.searchButtonText}>Add</Text>
+        <Pressable style={styles.searchButton} onPress={onUpdateGame}>
+          <Text style={styles.searchButtonText}>Update</Text>
         </Pressable>
       </ScrollView>
     </View>
   );
 };
 
-export default CreateGameScreen;
+export default UpdateScreen;

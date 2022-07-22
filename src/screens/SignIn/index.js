@@ -19,14 +19,13 @@ const SIGN_IN = gql`
 const SignInScreen = () => {
   const [id, setUserID] = useState('');
   const [pass, setPassword] = useState('');
-  console.log(id + pass);
+
   const navigation = useNavigation();
 
   const [signIn, {data, error, loading}] = useMutation(SIGN_IN);
 
   useEffect(() => {
     if (error) {
-      console.log(error);
       Alert.alert('Invalid credentials, try again', error.message);
     }
   }, [error]);
@@ -38,13 +37,6 @@ const SignInScreen = () => {
       navigation.navigate('Admin');
     }
   }, [data]);
-
-  //if (data) {
-  // save token
-  //  localStorage.setItem('token', data.signInGame.token);
-  //  localStorage.setItem('Name', data.signInGame.user.name);
-  // navigation.navigate('Admin');
-  //}
 
   const onSubmit = async () => {
     if (!id || !pass) {

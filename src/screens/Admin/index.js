@@ -60,14 +60,14 @@ const AdminScreen = props => {
           <Text style={styles.title}>
             Welcome {localStorage.getItem('Name')}
             <Text style={styles.title4}>
-              {'\n'}Would you like to add or delete a game?
+              {'\n'}Would you like to add, update, or delete a game?
             </Text>
           </Text>
         ) : (
           <Text style={landscapeStyles.title}>
             Welcome {localStorage.getItem('Name')}
             <Text style={styles.title4}>
-              {'\n'}Would you like to add or delete a game?
+              {'\n'}Would you like to add, update, or delete a game?
             </Text>
           </Text>
         )}
@@ -76,7 +76,9 @@ const AdminScreen = props => {
       {/* Button */}
       {isLandscape() === false ? (
         <View style={styles.box}>
-          <Image source={require('../../../assets/images/MindGameLogo-HomeScreen.png')} />
+          <Image
+            source={require('../../../assets/images/MindGameLogo-HomeScreen.png')}
+          />
         </View>
       ) : (
         <View style={landscapeStyles.box}>
@@ -96,18 +98,22 @@ const AdminScreen = props => {
           onPress={() => {
             navigation.navigate('Home');
           }}>
-          <Text style={styles.searchButtonText}>Return Home</Text>
+          <Text style={styles.searchButtonText}> Home </Text>
         </Pressable>
-
         <Pressable
           style={styles.addGameButton}
           onPress={() => navigation.navigate('Create Game')}>
-          <Text style={styles.searchButtonText}> Add Game </Text>
+          <Text style={styles.searchButtonText}> Add </Text>
+        </Pressable>
+        <Pressable
+          style={styles.addGameButton}
+          onPress={() => navigation.navigate('Update Game')}>
+          <Text style={styles.searchButtonText}> Update </Text>
         </Pressable>
         <Pressable
           style={styles.deleteGameButton}
           onPress={() => navigation.navigate('Delete Game')}>
-          <Text style={styles.searchButtonText}> Delete Game </Text>
+          <Text style={styles.searchButtonText}> Delete </Text>
         </Pressable>
       </View>
     </OrientationView>

@@ -23,23 +23,27 @@ const authLink = setContext((_, {headers}) => {
   };
 });
 
-export const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache({
-    typePolicies: {
-      Query: {
-        fields: {
-          getAllPosts: {
-            merge: true
+export const client = new ApolloClient(
+  {
+    link: authLink.concat(httpLink),
+    cache: new InMemoryCache({
+      typePolicies: {
+        Query: {
+          fields: {
+            games: {
+              //merge: true,
+              merge(existing = [], incoming) {
+                return incoming;
+              },
             },
           },
         },
       },
-    },
-  ),
-  defaultOptions: {
+    }),
+  },
+  /* defaultOptions: {
     watchQuery: {
       fetchPolicy: 'network-only',
     },
-  },
-});
+  },*/
+);
