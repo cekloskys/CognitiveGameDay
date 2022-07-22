@@ -76,7 +76,7 @@ const AdminScreen = props => {
       {/* Button */}
       {isLandscape() === false ? (
         <View style={styles.box}>
-          <Image source={require('../../../assets/images/MindGamesLogo.png')} />
+          <Image source={require('../../../assets/images/MindGameLogo-HomeScreen.png')} />
         </View>
       ) : (
         <View style={landscapeStyles.box}>
@@ -85,7 +85,7 @@ const AdminScreen = props => {
               width: Dimensions.get('screen').width * 0.15,
               height: Dimensions.get('screen').width * 0.15,
             }}
-            source={require('../../../assets/images/MindGamesLogo.png')}
+            source={require('../../../assets/images/MindGameLogo-HomeScreen.png')}
           />
         </View>
       )}

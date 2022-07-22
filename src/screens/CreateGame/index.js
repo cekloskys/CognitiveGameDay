@@ -78,14 +78,7 @@ const CreateGameScreen = () => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.newCourseContainer}>
-        <TextInput
-          value={note}
-          onChangeText={value => setNote(value)}
-          style={styles.codeInput}
-          clearButtonMode={'while-editing'}
-          placeholder={'Enter Note'}
-          placeholderTextColor="grey"
-        />
+
         <TextInput
           value={game}
           autoCapitalize="none"
@@ -111,6 +104,16 @@ const CreateGameScreen = () => {
           clearButtonMode={'while-editing'}
           placeholder={'Enter Game Title'}
           placeholderTextColor="grey"
+        />
+        <TextInput
+          value={note}
+          onChangeText={value => setNote(value)}
+          style={styles.codeInput}
+          clearButtonMode={'while-editing'}
+          placeholder={'Enter Note'}
+          placeholderTextColor="grey"
+          multiline={true}
+          numberOfLines={10}
         />
         <Pressable style={styles.searchButton} onPress={onCreateGame}>
           <Text style={styles.searchButtonText}>Add</Text>

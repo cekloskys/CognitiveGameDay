@@ -64,7 +64,7 @@ const HomeScreen = props => {
         <View style={styles.box}>
           <Pressable onPress={() => navigation.navigate('Sign In')}>
             <Image
-              source={require('../../../assets/images/MindGamesLogo.png')}
+              source={require('../../../assets/images/MindGameLogo-HomeScreen.png')}
             />
           </Pressable>
         </View>
@@ -76,7 +76,7 @@ const HomeScreen = props => {
                 width: Dimensions.get('screen').width * 0.15,
                 height: Dimensions.get('screen').width * 0.15,
               }}
-              source={require('../../../assets/images/MindGamesLogo.png')}
+              source={require('../../../assets/images/MindGameLogo-HomeScreen.png')}
             />
           </Pressable>
         </View>

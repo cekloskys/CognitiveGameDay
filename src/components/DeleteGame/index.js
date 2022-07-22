@@ -67,7 +67,7 @@ const DeleteGames = props => {
       <TouchableOpacity style={styles.touchable} onPress={onPress}>
         {/* Image */}
         <Image
-          source={require('../../../assets/images/MindGamesLogo.png')}
+          source={require('../../../assets/images/MindGameLogo-HomeScreen.png')}
           style={styles.image}
         />
         {post.note !== '' ? (
