@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1.0,
     color: 'black',
     borderColor: 'lightgrey',
+    height: 80,
   },
   semesterInput: {
     fontSize: 16,

@@ -100,6 +100,8 @@ const UpdateScreen = props => {
           clearButtonMode={'while-editing'}
           placeholder={'Enter Game Link Ex.https://www.google.com'}
           placeholderTextColor="grey"
+          multiline={true}
+          numberOfLines={10}
         />
         <TextInput
           value={solution}
@@ -109,6 +111,8 @@ const UpdateScreen = props => {
           clearButtonMode={'while-editing'}
           placeholder={'Enter Solution Link Ex.https://www.google.com'}
           placeholderTextColor="grey"
+          multiline={true}
+          numberOfLines={10}
         />
         <TextInput
           value={title}

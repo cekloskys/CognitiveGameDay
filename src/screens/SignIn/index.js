@@ -1,5 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, TextInput, Pressable, Alert} from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  Pressable,
+  Alert,
+  TouchableOpacity,
+} from 'react-native';
+import Entypo from 'react-native-vector-icons/Entypo';
 import {useNavigation} from '@react-navigation/native';
 import {useMutation, gql, ApolloError, useQuery} from '@apollo/client';
 import 'localstorage-polyfill';
@@ -19,6 +27,11 @@ const SIGN_IN = gql`
 const SignInScreen = () => {
   const [id, setUserID] = useState('');
   const [pass, setPassword] = useState('');
+
+  const [securityTextEntry, setSecurityTextEntry] = useState(true);
+  const onIconPress = () => {
+    setSecurityTextEntry(!securityTextEntry);
+  };
 
   const navigation = useNavigation();
 
@@ -69,22 +82,36 @@ const SignInScreen = () => {
           borderBottomWidth: 1.0,
         }}
       />
-      <TextInput
-        placeholder="Enter Password"
-        placeholderTextColor="grey"
-        value={pass}
-        autoCapitalize="none"
-        onChangeText={setPassword}
-        secureTextEntry
+      <View
         style={{
-          color: 'black',
-          fontSize: 16,
+          flexDirection: 'row',
           width: '100%',
-          marginVertical: 15,
-          borderColor: 'lightgrey',
           borderBottomWidth: 1.0,
-        }}
-      />
+          borderColor: 'lightgrey',
+          marginVertical: 15,
+        }}>
+        <TextInput
+          placeholder="Enter Password"
+          placeholderTextColor="grey"
+          value={pass}
+          autoCapitalize="none"
+          onChangeText={setPassword}
+          secureTextEntry={securityTextEntry}
+          style={{
+            color: 'black',
+            fontSize: 16,
+            width: '100%',
+            flex: 1,
+          }}
+        />
+        <TouchableOpacity onPress={onIconPress}>
+          {securityTextEntry === true ? (
+            <Entypo name="eye" size={20} />
+          ) : (
+            <Entypo name="eye-with-line" size={20} />
+          )}
+        </TouchableOpacity>
+      </View>
       <Pressable
         onPress={onSubmit}
         disabled={loading}
