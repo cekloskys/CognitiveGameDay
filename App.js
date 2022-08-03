@@ -7,15 +7,14 @@
  */
 import 'react-native-gesture-handler';
 import React from 'react';
-//import type {Node} from 'react';
-import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
-
+import {useColorScheme} from 'react-native';
+import {LogBox} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Router from './src/navigation/Router';
 import {client} from './apollo';
 import {ApolloProvider} from '@apollo/client';
 
-const App = () => { 
+const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -30,4 +29,7 @@ const App = () => {
   );
 };
 
+LogBox.ignoreLogs(['Reanimated 2']);
+LogBox.ignoreLogs(['onAnimatedValueUpdate']);
+LogBox.ignoreLogs(['Warning: ']);
 export default App;
