@@ -3,11 +3,9 @@ import {
   View,
   Text,
   Image,
-  ImageBackground,
   Pressable,
   SafeAreaView,
   BackHandler,
-  Button,
 } from 'react-native';
 import styles from './styles';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';

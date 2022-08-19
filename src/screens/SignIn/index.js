@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {useNavigation} from '@react-navigation/native';
-import {useMutation, gql, ApolloError, useQuery} from '@apollo/client';
+import {useMutation, gql} from '@apollo/client';
 import 'localstorage-polyfill';
 
 const SIGN_IN = gql`

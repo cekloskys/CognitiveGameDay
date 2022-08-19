@@ -34,7 +34,6 @@ const CreateGameScreen = () => {
 
   useEffect(() => {
     if (error) {
-      // console.log(error);
       Alert.alert('Error!', error.message);
     }
   }, [error]);

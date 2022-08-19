@@ -1,17 +1,10 @@
 import React, {useEffect} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  ImageBackground,
-  Pressable,
-  SafeAreaView,
-} from 'react-native';
+import {View, Text, Image, Pressable, SafeAreaView} from 'react-native';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import OrientationView from 'rn-orientation-view';
 import landscapeStyles from './landscapeStyles';
-import {Dimensions, Alert} from 'react-native';
+import {Dimensions} from 'react-native';
 import {useState} from 'react';
 
 const HomeScreen = props => {

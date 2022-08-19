@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import styles from '../CreateGame/styles';
 import {useNavigation} from '@react-navigation/native';
-import {useMutation, gql, ApolloError} from '@apollo/client';
+import {useMutation, gql} from '@apollo/client';
 
 const UPDATE_GAME = gql`
   mutation UpdateGame(

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {Alert, FlatList, View} from 'react-native';
-import solutions from '../../../assets/data/solution';
 import Solutions from '../../components/Solutions';
 import {useQuery, gql} from '@apollo/client';
 
@@ -28,7 +27,6 @@ const SolutionsScreen = props => {
   }, [error]);
 
   useEffect(() => {
-    //console.log(data);
 
     if (data) {
       setResults(data.games);

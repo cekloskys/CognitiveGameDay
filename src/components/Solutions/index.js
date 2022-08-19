@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Text,
   Image,
-  Pressable,
   Linking,
   TouchableOpacity,
   View,

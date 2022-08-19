@@ -2,15 +2,12 @@ import React, {useEffect} from 'react';
 import {
   Text,
   Image,
-  Pressable,
-  Linking,
   TouchableOpacity,
   View,
   Alert,
 } from 'react-native';
 import styles from './styles';
 import {useMutation, gql} from '@apollo/client';
-import {onError} from 'apollo-link-error';
 import {useNavigation} from '@react-navigation/native';
 
 const DELETE_GAMES = gql`
@@ -43,13 +40,12 @@ const DeleteGames = props => {
 
   const onPress = async () => {
     Alert.alert(
-      'Please Comfirm',
+      'Please Confirm',
       'Are you sure you would like to delete ' + post.title + '?',
       [
         {
           text: 'Yes',
           onPress: async () => {
-            //console.log("User Deleted Game Deleteing Game Then Returning to Admin");
             await deleteGame({variables: {deleteGameId: deleteGameId}})
               .then(navigation.navigate('Admin'))
               .catch(error => console.log(error));
@@ -58,7 +54,6 @@ const DeleteGames = props => {
         {
           text: 'No',
           onPress: () => {
-            //console.log("User Canceled Returning to Admin");
             navigation.navigate('Admin');
           },
         },

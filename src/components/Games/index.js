@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Text,
-  Image,
-  Linking,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Text, Image, Linking, TouchableOpacity, View} from 'react-native';
 import styles from './styles';
 
 const Games = props => {
